@@ -262,6 +262,13 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
 .loc-row span:first-child{color:var(--muted)}
 .loc-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 @media (max-width:760px){.loc{grid-template-columns:1fr}.loc-tile{min-height:240px}.loc-info{padding:18px 0 0}}
+.stepper{display:inline-grid;grid-template-columns:44px 56px auto 44px;align-items:center;border:1px solid var(--fg);height:44px;margin:0 0 8px}
+.stepper button{appearance:none;background:none;border:0;height:100%;font-size:18px;font-weight:300;cursor:pointer}
+.stepper button:disabled{opacity:.25;cursor:default}
+.stepper input{border:0;background:none;text-align:right;font:inherit;font-size:16px;width:100%;color:var(--fg);-moz-appearance:textfield;padding:0}
+.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.stepper span{padding:0 8px 0 6px;font-size:14px}
+.hint{font-size:12px;color:var(--muted);margin:0 0 14px;min-height:1em}
 /* faq */
 .faq summary{font-size:15px;padding:18px 0;gap:16px}
 .faq .dbody{font-size:14px;max-width:46em;line-height:1.8}
@@ -376,7 +383,7 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
   <section class="sec wrap">
     <div class="split">
       <div class="tilebox">
-        <div><h3 data-t="rb.rent.t">短期租借</h3><h4 data-t="rb.rent.h">一兩場面試或活動</h4><p data-t="rb.rent.d">可選 3、7 或 14 天，付租金與押金，歸還檢查無損壞即退還押金。</p></div>
+        <div><h3 data-t="rb.rent.t">短期租借</h3><h4 data-t="rb.rent.h">一兩場面試或活動</h4><p data-t="rb.rent.d">天數自己選（1–30 天），付租金與押金，歸還檢查無損壞即退還押金。</p></div>
         <a class="u small" href="#shop-rent" data-t="rb.rent.l">選購可租借商品</a>
       </div>
       <div class="tilebox">
@@ -639,7 +646,7 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
     "s2.t":["定向收購","Targeted sourcing"],"s2.d":["依需求向校友與上班族收購合適的閒置正裝。","We buy suitable pieces from alumni and professionals based on those requests."],
     "s3.t":["試穿後決定租或買","Try on, then rent or buy"],"s3.d":["每件都清潔、量測、分級，可在校園快閃或預約試穿。","Every piece is cleaned, measured and graded. Try it on at a campus pop-up or by appointment."],
     "s4.t":["歸還或回售","Return or sell back"],"s4.d":["租借期滿歸還；買下的衣服不穿了，也能回售給我們。","Return rentals at the end of the period. Pieces you bought can be sold back when you’re done with them."],
-    "rb.rent.t":["短期租借","Rent"],"rb.rent.h":["一兩場面試或活動","For one or two interviews or events"],"rb.rent.d":["可選 3、7 或 14 天，付租金與押金，歸還檢查無損壞即退還押金。","Choose 3, 7 or 14 days. Pay a rental fee and deposit, and get the deposit back after return and inspection."],"rb.rent.l":["選購可租借商品","Shop rentable pieces"],
+    "rb.rent.t":["短期租借","Rent"],"rb.rent.h":["一兩場面試或活動","For one or two interviews or events"],"rb.rent.d":["天數自己選（1–30 天），付租金與押金，歸還檢查無損壞即退還押金。","Pick any length from 1 to 30 days. Pay a rental fee and deposit, and get the deposit back after return and inspection."],"rb.rent.l":["選購可租借商品","Shop rentable pieces"],
     "rb.buy.t":["平價買斷","Buy"],"rb.buy.h":["實習、剛上班，每週都要穿","For internships and new jobs, worn every week"],"rb.buy.d":["以平價買下就是你的，不再需要時可依衣況回售。","Buy it at a fair price and it’s yours. Sell it back based on condition when you no longer need it."],"rb.buy.l":["選購可買斷商品","Shop pieces for sale"],
     "looks.title":["穿搭提案","Looks"],"looks.lede":["不確定怎麼穿？從最接近你場合的一套開始。","Not sure what to wear? Start with the look closest to your occasion."],
     "look1.t":["面試基本款","Interview basics"],"look1.d":["襯衫、西裝褲｜多數產業的一般面試","Shirt and trousers · Standard interviews in most industries"],
@@ -661,13 +668,13 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
     "opt.all":["全部","All"],"opt.rent":["可租借","Rentable"],"opt.buy":["可買斷","For sale"],
     "empty":["沒有符合條件的商品。登記需求後，我們會依你的尺寸去找。","Nothing matches. Send a request and we’ll look for your size."],
     "badge.rent":["可租借","Rentable"],"ill":["示意圖","Illustration"],"card.rent":["租借 {p} 起","Rent from {p}"],
-    "p.back":["全部商品","All items"],"p.buy":["購買","Buy"],"p.rent":["租借","Rent"],"p.rentfrom":["租借 {p} 起","Rent from {p}"],"p.days":["租借天數","Rental length"],"p.dn":["{d} 天","{d} days"],
+    "p.back":["全部商品","All items"],"p.buy":["購買","Buy"],"p.rent":["租借","Rent"],"p.rentfrom":["租借 {p} 起","Rent from {p}"],"p.days":["租借天數","Rental length"],"p.range":["1–30 天","1–30 days"],"p.perday":["平均每天 {p}","{p} per day"],"p.unit":["天","days"],"p.dec":["減少一天","One day less"],"p.inc":["增加一天","One day more"],"p.hint":["租這麼久，直接買斷 {p} 可能更划算。","At this length, buying for {p} may be better value."],"p.dn":["{d} 天","{d} days"],
     "p.deposit":["另收押金 {p}，歸還檢查後退還","Plus {p} deposit, refunded after return"],"p.owned":["買下即為你所有，日後可回售","Yours to keep, with the option to sell back later"],
     "p.size":["尺寸","Size"],"p.only":["二手商品每件只有一個尺寸","Each pre-loved piece comes in one size"],"p.cond":["衣況","Condition"],
     "p.cta":["預約試穿","Book a try-on"],"p.ctanote":["會在新分頁開啟 Google 表單，試穿後再決定租或買。","Opens a Google Form (in Chinese) in a new tab. Decide to rent or buy after trying it on."],
     "d.meas":["尺寸與量測","Size and measurements"],"d.measnote":["平放測量，單位為公分，誤差約 1 公分。","Measured flat in centimeters, accurate to about 1 cm."],
     "d.cond":["衣況說明","Condition"],"d.rent":["租借與押金","Rental and deposit"],
-    "d.rentd":["可選擇 3 天、7 天或 14 天，天數越長平均每天越划算。歸還後經檢查無損壞，押金全額退還；需要延長請在到期前聯絡我們。","Choose 3, 7 or 14 days; longer rentals cost less per day. Your deposit is refunded in full after the piece is returned and inspected. To extend, contact us before your rental ends."],
+    "d.rentd":["可以自己選擇 1 到 30 天，天數越長平均每天越划算。歸還後經檢查無損壞，押金全額退還；需要延長請在到期前聯絡我們。","Choose any length from 1 to 30 days; longer rentals cost less per day. Your deposit is refunded in full after the piece is returned and inspected. To extend, contact us before your rental ends."],
     "d.norent":["這件商品只提供買斷。","This piece is available to buy only."],
     "d.clean":["清潔與檢查","Cleaning and inspection"],"d.cleand":["每件商品上架前都經過清潔、整燙與功能檢查（拉鍊、鈕扣），每次租借歸還後也會再次清潔。","Every piece is cleaned, pressed and checked (zips, buttons) before listing, and cleaned again after each rental."],
     "p.more":["你可能也喜歡","You may also like"],
@@ -742,9 +749,9 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
   }
 
 
-  const FAQ=[["租借會不會有衣物衛生的問題？", "Are rented clothes hygienic?", "每件衣服上架前都會清潔、整燙並檢查，每次租借歸還後也會再清潔一次，才交給下一位。衣況與瑕疵都會在商品頁標示清楚。", "Every piece is cleaned, pressed and inspected before listing, and cleaned again after each rental before it goes to the next person. Condition and any flaws are clearly noted on the product page."], ["面交會不會有安全疑慮？", "Is meeting in person safe?", "試穿與取件都在國立臺灣大學校園內的公共空間進行，時間和地點會在預約確認時告知，現場由團隊成員負責，不需要和陌生人私下約見。", "Try-ons and pickups happen in a public space on the National Taiwan University campus, at a time and spot confirmed when you book. Our team is there, so you never meet strangers privately."], ["借出的衣服一定要歸還嗎？", "Do I have to return rented clothes?", "租借的衣服需要在租期結束時歸還，讓下一位青年也能使用。如果穿了之後想留下，可以聯絡我們討論改為買斷。買斷的衣服不需歸還，日後也能回售。", "Yes. Rentals must be returned at the end of the period so the next person can use them. If you’d like to keep a piece, contact us about buying it instead. Purchased pieces are yours and can be sold back later."], ["如果衣服損壞或遺失怎麼辦？", "What if a piece is damaged or lost?", "正常穿著造成的輕微痕跡不會扣款。若有明顯損壞或遺失，團隊會依修復費用或衣物價值從押金中扣除，並事先向你說明。", "Light signs of normal wear won’t cost you anything. For noticeable damage or loss, we deduct repair costs or the item’s value from the deposit and explain it to you first."], ["衣物可以借多久？", "How long can I rent?", "可以選擇 3 天、7 天或 14 天，天數越長平均每天越划算。需要延長的話，請在到期前聯絡我們，若沒有其他人預約就能延長。", "Choose 3, 7 or 14 days; longer rentals cost less per day. To extend, contact us before your rental ends, and we’ll extend it if no one else has booked the piece."], ["什麼樣的衣服可以上架？", "What clothes can be listed?", "無明顯破損與難以去除的污漬、沒有異味或發霉、拉鍊與鈕扣功能正常，並且是目前青年需要的款式與尺寸。實物驗收通過後才會收購上架。", "Pieces with no noticeable damage or stubborn stains, no odors or mildew, working zips and buttons, and in styles and sizes young people currently need. We only buy and list a piece after an in-person inspection."], ["如果借到的衣服尺寸不合怎麼辦？", "What if it doesn’t fit?", "每件商品都標示實際量測，也建議先預約試穿再決定。試穿後不合身，可以改試其他尺寸，或登記需求讓我們幫你找。", "Every piece lists actual measurements, and we recommend trying it on before deciding. If it doesn’t fit, try another size or send a request and we’ll look for one."], ["需要支付費用嗎？", "Do I have to pay?", "租借需支付租金與押金，押金在歸還檢查後退還；買斷則支付售價。試穿不收費，登記需求和提供衣物也都免費。", "Rentals cost a rental fee plus a deposit, which is refunded after return and inspection. Purchases cost the listed price. Trying on is free, and so are sending a request and offering clothes."], ["我不是學生，也可以使用嗎？", "I’m not a student. Can I still use it?", "可以。我們以準備面試、實習與剛踏入職場的青年為主要服務對象，但任何需要正裝的人都歡迎使用。", "Yes. We mainly serve young people preparing for interviews, internships and first jobs, but anyone who needs formalwear is welcome."], ["你們如何建立使用者之間的信任？", "How do you build trust between users?", "所有交易都由團隊居中處理，提供衣物的人和使用者不需要直接交易。每件衣服都經過驗收、清潔與分級，商品頁公開量測與衣況，並提供試穿，讓你看過再決定。", "Our team handles every transaction, so people offering clothes and people renting or buying never deal with each other directly. Every piece is inspected, cleaned and graded, measurements and condition are shown on the product page, and you can try before you decide."], ["這個計畫跟一般租衣平台有什麼不同？", "How is this different from other rental platforms?", "我們專注在青年面試、實習與初入職場的正裝，先了解需求再去收購；可以租也可以買，買下的衣服日後還能回售，讓衣服在不同青年之間持續流通。", "We focus on formalwear for young people’s interviews, internships and first jobs, and we source based on demand. You can rent or buy, and pieces you buy can be sold back later, so clothes keep circulating among young people."], ["如果我不想借衣服，可以支持你們嗎？", "Can I support you without renting?", "當然可以！你可以提供家中閒置的正裝、填寫需求表單幫助我們了解青年需要什麼、追蹤我們的 Instagram，或把這個網站分享給需要的朋友。", "Absolutely. Offer formalwear you no longer wear, fill in our request form to help us understand what young people need, follow us on Instagram, or share this site with friends who might need it."], ["我擔心個人資料被看到怎麼辦？", "What about my personal data?", "表單收集的資料只用於衣物配對與聯絡，只有團隊成員能查看，不會提供給第三方。如果想刪除你的資料，可以透過 Instagram 聯絡我們。", "Information from our forms is used only to match clothes and contact you. Only team members can see it, and it’s never shared with third parties. To have your data deleted, contact us on Instagram."]];
-  const RENT_DAYS=[3,7,14],RATE={3:.7,7:1,14:1.6};
-  const rentPrice=(it,d)=>Math.round(it.rent*RATE[d]/10)*10;
+  const FAQ=[["租借會不會有衣物衛生的問題？", "Are rented clothes hygienic?", "每件衣服上架前都會清潔、整燙並檢查，每次租借歸還後也會再清潔一次，才交給下一位。衣況與瑕疵都會在商品頁標示清楚。", "Every piece is cleaned, pressed and inspected before listing, and cleaned again after each rental before it goes to the next person. Condition and any flaws are clearly noted on the product page."], ["面交會不會有安全疑慮？", "Is meeting in person safe?", "試穿與取件都在國立臺灣大學校園內的公共空間進行，時間和地點會在預約確認時告知，現場由團隊成員負責，不需要和陌生人私下約見。", "Try-ons and pickups happen in a public space on the National Taiwan University campus, at a time and spot confirmed when you book. Our team is there, so you never meet strangers privately."], ["借出的衣服一定要歸還嗎？", "Do I have to return rented clothes?", "租借的衣服需要在租期結束時歸還，讓下一位青年也能使用。如果穿了之後想留下，可以聯絡我們討論改為買斷。買斷的衣服不需歸還，日後也能回售。", "Yes. Rentals must be returned at the end of the period so the next person can use them. If you’d like to keep a piece, contact us about buying it instead. Purchased pieces are yours and can be sold back later."], ["如果衣服損壞或遺失怎麼辦？", "What if a piece is damaged or lost?", "正常穿著造成的輕微痕跡不會扣款。若有明顯損壞或遺失，團隊會依修復費用或衣物價值從押金中扣除，並事先向你說明。", "Light signs of normal wear won’t cost you anything. For noticeable damage or loss, we deduct repair costs or the item’s value from the deposit and explain it to you first."], ["衣物可以借多久？", "How long can I rent?", "可以自己選擇 1 到 30 天，天數越長平均每天越划算。需要延長的話，請在到期前聯絡我們，若沒有其他人預約就能延長。", "Choose any length from 1 to 30 days; longer rentals cost less per day. To extend, contact us before your rental ends, and we’ll extend it if no one else has booked the piece."], ["什麼樣的衣服可以上架？", "What clothes can be listed?", "無明顯破損與難以去除的污漬、沒有異味或發霉、拉鍊與鈕扣功能正常，並且是目前青年需要的款式與尺寸。實物驗收通過後才會收購上架。", "Pieces with no noticeable damage or stubborn stains, no odors or mildew, working zips and buttons, and in styles and sizes young people currently need. We only buy and list a piece after an in-person inspection."], ["如果借到的衣服尺寸不合怎麼辦？", "What if it doesn’t fit?", "每件商品都標示實際量測，也建議先預約試穿再決定。試穿後不合身，可以改試其他尺寸，或登記需求讓我們幫你找。", "Every piece lists actual measurements, and we recommend trying it on before deciding. If it doesn’t fit, try another size or send a request and we’ll look for one."], ["需要支付費用嗎？", "Do I have to pay?", "租借需支付租金與押金，押金在歸還檢查後退還；買斷則支付售價。試穿不收費，登記需求和提供衣物也都免費。", "Rentals cost a rental fee plus a deposit, which is refunded after return and inspection. Purchases cost the listed price. Trying on is free, and so are sending a request and offering clothes."], ["我不是學生，也可以使用嗎？", "I’m not a student. Can I still use it?", "可以。我們以準備面試、實習與剛踏入職場的青年為主要服務對象，但任何需要正裝的人都歡迎使用。", "Yes. We mainly serve young people preparing for interviews, internships and first jobs, but anyone who needs formalwear is welcome."], ["你們如何建立使用者之間的信任？", "How do you build trust between users?", "所有交易都由團隊居中處理，提供衣物的人和使用者不需要直接交易。每件衣服都經過驗收、清潔與分級，商品頁公開量測與衣況，並提供試穿，讓你看過再決定。", "Our team handles every transaction, so people offering clothes and people renting or buying never deal with each other directly. Every piece is inspected, cleaned and graded, measurements and condition are shown on the product page, and you can try before you decide."], ["這個計畫跟一般租衣平台有什麼不同？", "How is this different from other rental platforms?", "我們專注在青年面試、實習與初入職場的正裝，先了解需求再去收購；可以租也可以買，買下的衣服日後還能回售，讓衣服在不同青年之間持續流通。", "We focus on formalwear for young people’s interviews, internships and first jobs, and we source based on demand. You can rent or buy, and pieces you buy can be sold back later, so clothes keep circulating among young people."], ["如果我不想借衣服，可以支持你們嗎？", "Can I support you without renting?", "當然可以！你可以提供家中閒置的正裝、填寫需求表單幫助我們了解青年需要什麼、追蹤我們的 Instagram，或把這個網站分享給需要的朋友。", "Absolutely. Offer formalwear you no longer wear, fill in our request form to help us understand what young people need, follow us on Instagram, or share this site with friends who might need it."], ["我擔心個人資料被看到怎麼辦？", "What about my personal data?", "表單收集的資料只用於衣物配對與聯絡，只有團隊成員能查看，不會提供給第三方。如果想刪除你的資料，可以透過 Instagram 聯絡我們。", "Information from our forms is used only to match clothes and contact you. Only team members can see it, and it’s never shared with third parties. To have your data deleted, contact us on Instagram."]];
+  const DMIN=1,DMAX=30;
+  const rentPrice=(it,d)=>Math.max(10,Math.round(it.rent*(5+0.9*d)/11/10)*10);
   let LANG="zh";
   try{const v=localStorage.getItem("yzxh-lang");if(v==="en"||v==="zh")LANG=v;}catch(e){}
   const en=()=>LANG==="en";
@@ -784,7 +791,7 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
     return '<a class="pcard" href="#item-'+it.id+'"><div class="img">'+garment(it.piece,it.color)+
       (it.rent?'<span class="badge">'+t("badge.rent")+'</span>':'')+'<span class="ill">'+t("ill")+'</span></div>'+
       '<div class="pinfo"><span class="pname">'+esc(iname(it))+'</span><span class="pprice">'+money(it.sale)+'</span>'+
-      (it.rent?'<span class="pmeta">'+t("card.rent",{p:money(rentPrice(it,RENT_DAYS[0]))})+'</span>':'')+
+      (it.rent?'<span class="pmeta">'+t("card.rent",{p:money(rentPrice(it,DMIN))})+'</span>':'')+
       '<span class="pmeta">'+it.size+(en()?" · ":"・")+esc(w(it.color))+(en()?" · ":"・")+t("p.cond")+" "+it.grade+'</span></div></a>';
   }
   function renderShop(){
@@ -839,14 +846,16 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
       '<div class="pdp-info">'+
         '<a class="crumb u" href="#shop-'+c.slug+'">'+esc(en()?c.en:c.zh)+'</a>'+
         '<h1>'+esc(iname(it))+'</h1>'+
-        '<p class="price">'+(rentOn?money(rentPrice(it,S.days))+' <span class="muted small">/ '+t("p.dn",{d:S.days})+'</span>':money(it.sale))+'</p>'+
+        '<p class="price" id="pPrice">'+(rentOn?rentPriceHTML(it):money(it.sale))+'</p>'+
         '<p class="sub">'+(rentOn?t("p.deposit",{p:money(it.deposit)}):t("p.owned"))+'</p>'+
-        (it.rent?'<div class="seg" role="group"><button type="button" data-pm="buy" aria-pressed="'+!rentOn+'">'+t("p.buy")+' '+money(it.sale)+'</button><button type="button" data-pm="rent" aria-pressed="'+!!rentOn+'">'+t("p.rentfrom",{p:money(rentPrice(it,RENT_DAYS[0]))})+'</button></div>':'<div style="height:24px"></div>')+
-        (rentOn?'<div class="pdp-row" style="border-top:0;padding-top:0"><span>'+t("p.days")+'</span></div><div class="opts" style="margin-bottom:18px">'+RENT_DAYS.map(d=>'<button type="button" class="opt" data-days="'+d+'" aria-pressed="'+(S.days===d)+'">'+t("p.dn",{d})+'　'+money(rentPrice(it,d))+'</button>').join("")+'</div>':'')+
+        (it.rent?'<div class="seg" role="group"><button type="button" data-pm="buy" aria-pressed="'+!rentOn+'">'+t("p.buy")+' '+money(it.sale)+'</button><button type="button" data-pm="rent" aria-pressed="'+!!rentOn+'">'+t("p.rentfrom",{p:money(rentPrice(it,DMIN))})+'</button></div>':'<div style="height:24px"></div>')+
+        (rentOn?'<div class="pdp-row" style="border-top:0;padding-top:0"><span>'+t("p.days")+'<span class="muted">（'+t("p.range")+'）</span></span><span class="muted" id="pPerDay">'+t("p.perday",{p:money(Math.round(rentPrice(it,S.days)/S.days))})+'</span></div>'+
+          '<div class="stepper"><button type="button" data-step="-1" aria-label="'+t("p.dec")+'"'+(S.days<=DMIN?" disabled":"")+'>−</button><input id="daysIn" type="number" inputmode="numeric" min="'+DMIN+'" max="'+DMAX+'" value="'+S.days+'" aria-label="'+t("p.days")+'"><span>'+t("p.unit")+'</span><button type="button" data-step="1" aria-label="'+t("p.inc")+'"'+(S.days>=DMAX?" disabled":"")+'>＋</button></div>'+
+          '<p class="hint" id="pHint">'+hintText(it)+'</p>':'')+
         '<div class="pdp-row"><span>'+t("p.size")+'</span><span class="muted">'+t("p.only")+'</span></div>'+
         '<div class="sizebox"><span class="opt" aria-pressed="true" style="display:inline-flex;align-items:center;justify-content:center">'+it.size+'</span><span class="small muted">'+esc(w(it.color))+'</span></div>'+
         '<div class="pdp-row"><span>'+t("p.cond")+'</span><span>'+it.grade+'　<span class="muted">'+t("g"+it.grade)+'</span></span></div>'+
-        '<a class="btn btn-block" href="'+holdUrl(it,rentOn?S.days:0)+'" target="_blank" rel="noopener">'+t("p.cta")+'</a>'+
+        '<a class="btn btn-block" id="pHold" href="'+holdUrl(it,rentOn?S.days:0)+'" target="_blank" rel="noopener">'+t("p.cta")+'</a>'+
         '<p class="ctanote">'+t("p.ctanote")+'</p>'+
         '<div style="height:24px"></div>'+
         '<details open><summary>'+t("d.meas")+'</summary><div class="dbody"><table class="mtable"><tbody>'+meas.map(([k,v])=>'<tr><td>'+esc(w(k))+'</td><td>'+v+' cm</td></tr>').join("")+'</tbody></table>'+t("d.measnote")+'</div></details>'+
@@ -858,7 +867,21 @@ details .dbody{padding:0 0 16px;font-size:13px;color:var(--muted)}
     $("#moreGrid").style.setProperty("--cols",4);$("#moreGrid").style.setProperty("--mcols",2);
     $("#moreGrid").innerHTML=more.map(card).join("");
   }
-  $("#pdp").addEventListener("click",e=>{const b=e.target.closest("[data-pm]");if(b){S.pmode=b.dataset.pm;renderItem(curItem);return;}const d=e.target.closest("[data-days]");if(d){S.days=+d.dataset.days;renderItem(curItem);}});
+  function rentPriceHTML(it){return money(rentPrice(it,S.days))+' <span class="muted small">/ '+t("p.dn",{d:S.days})+'</span>';}
+  function hintText(it){return rentPrice(it,S.days)>=it.sale*0.8?t("p.hint",{p:money(it.sale)}):"";}
+  function setDays(d,fromInput){
+    const it=ITEMS.find(x=>x.id===curItem);if(!it)return;
+    d=Math.min(DMAX,Math.max(DMIN,Math.round(d)||DMIN));S.days=d;
+    const inp=$("#daysIn");if(inp&&!fromInput)inp.value=d;
+    $("#pPrice").innerHTML=rentPriceHTML(it);
+    $("#pPerDay").textContent=t("p.perday",{p:money(Math.round(rentPrice(it,d)/d))});
+    $("#pHint").textContent=hintText(it);
+    $("#pHold").href=holdUrl(it,d);
+    const [dec,inc]=$$(".stepper button");dec.disabled=d<=DMIN;inc.disabled=d>=DMAX;
+  }
+  $("#pdp").addEventListener("click",e=>{const b=e.target.closest("[data-pm]");if(b){S.pmode=b.dataset.pm;renderItem(curItem);return;}const st=e.target.closest("[data-step]");if(st){setDays(S.days+(+st.dataset.step));}});
+  $("#pdp").addEventListener("input",e=>{if(e.target.id!=="daysIn")return;const v=parseInt(e.target.value,10);if(v>=DMIN&&v<=DMAX)setDays(v,true);});
+  $("#pdp").addEventListener("change",e=>{if(e.target.id!=="daysIn")return;setDays(parseInt(e.target.value,10));});
   function renderFaq(){
     const html=(arr,off)=>arr.map((q,i)=>'<details><summary>'+(off+i+1)+'.　'+esc(en()?q[1]:q[0])+'</summary><div class="dbody">'+esc(en()?q[3]:q[2])+'</div></details>').join("");
     $("#faqAll").innerHTML=html(FAQ,0);
